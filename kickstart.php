@@ -18,6 +18,10 @@ add_action('init', 'load_my_kickstart_js');
 function load_my_kickstart_css()  {  
     wp_register_style( 'kickstart_css', plugins_url('KickstarterUI/css/kickstart.css'), array(), '20130423', 'all' );   
     wp_enqueue_style( 'kickstart_css' );  
+     if ( file_exists( get_stylesheet_directory() . '/kickstart-custom.css' ) ) {
+            wp_register_style( 'kickstart_custom', get_stylesheet_directory_uri() . '/kickstart-custom.css', array(), '20130423', 'all' );
+            wp_enqueue_style( 'kickstart_custom' );
+        }
 }  
 add_action( 'wp_enqueue_scripts', 'load_my_kickstart_css' );  
 ?>
