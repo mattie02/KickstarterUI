@@ -10,13 +10,13 @@ License: A "Slug" license name e.g. GPL2
 */
 
 function load_my_kickstart_js() {  
-    wp_register_script('kickstart_js', plugins_url('/js/kickstart.js'), array("jquery"), '1.0', false );  
+    wp_register_script('kickstart_js', plugins_url('KickstarterUI/js/kickstart.js'), array("jquery"), '1.0', false );  
     wp_enqueue_script('kickstart_js');  
 }  
 add_action('init', 'load_my_kickstart_js');  
 
 function load_my_kickstart_css()  {  
-    wp_register_style( 'kickstart_css', plugins_url('/css/kickstart.css'), array(), '20130423', 'all' );   
+    wp_register_style( 'kickstart_css', plugins_url('KickstarterUI/css/kickstart.css'), array(), '20130423', 'all' );   
     wp_enqueue_style( 'kickstart_css' );  
 }  
 add_action( 'wp_enqueue_scripts', 'load_my_kickstart_css' );  
