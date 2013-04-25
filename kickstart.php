@@ -16,6 +16,9 @@ function load_my_kickstart_js() {
 add_action('init', 'load_my_kickstart_js');  
 
 function load_my_kickstart_css()  {  
+	wp_deregister_style( 'style_css', get_stylesheet_directory_uri() . '/style.css' );
+	//$style = get_stylesheet_directory_uri() . '/style.css';
+	//wp_dequeue_style_style( $style );
     wp_register_style( 'kickstart_css', plugins_url('KickstarterUI/css/kickstart.css'), array(), '20130423', 'all' );   
     wp_enqueue_style( 'kickstart_css' );  
      if ( file_exists( get_stylesheet_directory() . '/kickstart-custom.css' ) ) {
@@ -23,5 +26,5 @@ function load_my_kickstart_css()  {
             wp_enqueue_style( 'kickstart_custom' );
         }
 }  
-add_action( 'wp_enqueue_scripts', 'load_my_kickstart_css' );  
+add_action( 'wp_enqueue_scripts', 'load_my_kickstart_css', 12 );  
 ?>
